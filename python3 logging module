@@ -1,0 +1,22 @@
+'''
+This is a python inbuild module used for programmatically log script actions.
+'''
+import logging
+
+#create and configure logger
+LOG_FORMAT = "%(levelname)s %(asctime)s -%(message)s"   #this is for the log format (level : datetime : message)
+logging.basicConfig(
+                    filename = '/tmp/log.txt',     #file to which the logging is suppose to be done 
+                    level = logging.DEBUG,         #Debug allows user to log all the level like (debug,info,warning,error,critical)
+                    format = LOG_FORMAT,
+                    filemode = 'w'                 #will rewrite the log file on every new run of program
+                    )
+log = logging.getLogger()
+
+#test messages
+log.debug("this is debug")
+log.info("this is info")
+log.warning("this is warning")
+log.error("this is error")
+log.critical("this is critical")
+
