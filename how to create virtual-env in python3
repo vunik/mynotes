@@ -1,0 +1,21 @@
+*-In python projects one might need some modules. 
+*-This modules might be just project specific.
+*-so now what if install a module1.x version for project1 and need same module but with diffrent version lets consider module3.x,
+now what will one do ?
+*-Not only modules but what if the project needs some tweking to base config then this might change the base machine config.
+
+*-Solution to this problem is virtualenv(virtual environment) module in python,
+this module create a virtual environment for project the project which facilitates to do project specific changes without affecting the base machine.
+*- One can install any modules for a project and this wont be included in global site packages it will be loacl to project.
+*- Commands for installing and creating a project using virtual-env:
+  *- install virtual-env 
+  > pip install virtualenv
+  
+  *- Create a virtual environment project
+	> virtualenv -p /usr/bin/<python with version> <project name> 
+
+  *- To get into virtual environment
+	> source <project name>/bin/activate
+
+  *- To exit project
+	> deactivate
