@@ -1,0 +1,86 @@
+#all data mentioned below is wrt to linux distro some configuration or steps might change as per OS and arch.(i am using fedora 25)
+
+*-opensource and interpreted langauge
+
+*-python scripts have extension ".py"
+> python script_name.py  // to execute the program
+else set execute permission and then execute the script.
+> chmod +x script.py
+> ./script.py
+
+
+*- at the beginning of the script need to mention the interpreter location
+  #!/usr/bin/env python3   // in my case this is the default location. 
+
+*-supports datatypes like
+  -list,tuples,dictionary,integer,string,float & etc
+  -python is dynamically typed language i.e whatever datatype is added to a variable gets assined to that type, 
+    no need to specify data type.
+  > type(<variable name>)  // this command is used to specify the datatype of a varible
+
+*- "#" is used for commenting purpose.Interpreter won't interpret the lines marked with # at the begning of the line.
+----------------------------------------------------------------------------------------------------------------------------------
+# modules :
+----------------------------------------------------------------------------------------------------------------------------------
+*-They are ".py" files which acts as an library files.
+*-it can be used in any program by using: 
+    > import <module name>  or 
+    > from <module name> import <sub module name>
+    we can use alise for module name > import <module name> as <alise name>
+  -some usefull modules are inbuilt that comes with interpreter rest we can 
+    install using "pip" installer or https://pypi.python.org/pypi
+
+*-to view module information use dir(<module name>) or help(<module name>)
+----------------------------------------------------------------------------------------------------------------------------------
+# Reading input form user
+----------------------------------------------------------------------------------------------------------------------------------
+
+*- > input():
+    -this function is used to prompt user to input via command line into the program
+    -raw_input() was used in python2.x but from python3.x it is deprecated
+    
+----------------------------------------------------------------------------------------------------------------------------------
+# Numbers     
+----------------------------------------------------------------------------------------------------------------------------------
+  -interger,long integer,floating-point,octal & hex,complex number.
+  > eval( <complex expression> )   // this command is used to evaluate the complex expression.
+  
+-----------------------------------------------------------------------------------------------------------------------------  
+#Typecast
+-----------------------------------------------------------------------------------------------------------------------------    
+ *- changing the datatype form one type to another.
+  <data type>( <variable name> ) eg int(data)   // it will convert datatype of data variable into integer.
+  -int(),float(),str() & etc
+
+-----------------------------------------------------------------------------------------------------------------------------
+# formatting strings
+----------------------------------------------------------------------------------------------------------------------------- 
+ *- {n} this are placeholders the list inside .format() will replace {n} as per index
+ > print(" i m {0},i love {1}".format("vishal","python"))
+
+
+*- divmod(x,y) // this function will divide x/y and it returns (quotient, remainder)
+
+---------------------------------------------------------------------------------------------------------------------------------
+#if - else conditional statement
+---------------------------------------------------------------------------------------------------------------------------------
+*-if <statement> :
+    -condition check statement,if the mentioned condiditon is satisifed then the program control will enter into the block for  execution else exit the condition check.
+*-else:
+    - when 'if' statement fails the condition check then by defualt this block gets executed
+*-elif <statement> :
+    -this is 'else if' block gets to check condition if 'if' fails
+ program can have many 'if' or 'elif' but only one 'else'
+ 
+ --------------------------------------------------------------------------------------------------------------------------------
+ #while loop
+ --------------------------------------------------------------------------------------------------------------------------------
+ *- while( <conditional statement> ):
+    -untill the conditional statement is true the block of code will execute the code
+ *- break
+    -this is the keyword that is used to break the execution loop.
+  
+  
+ 
+ 
+  
