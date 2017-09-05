@@ -1,0 +1,251 @@
+<start>
+--------------------------------------------------------------------------------------------------------------------------------
+#6-7-2017 Thursday
+--------------------------------------------------------------------------------------------------------------------------------
+**virtual terminal**
+
+*-has 5 text login and with diffrent sessions
+and on GUI session
+
+*-ctrl+alt+(f1 to f6)
+
+*-to get which virtual terminal you belong to
+  > tty
+
+----------------------------------------------
+
+**command prompt & commands**
+
+*- [vishal@localhost ~]$   or [vishal@localhost ~]#   
+	- 'vishal' : username
+	- 'localhost' : short domain name
+	- '~'	: current directory location
+	- '$'   : if logged in as any user
+	- '#'   : if logged in as root user 	
+   	
+*-ls         -l       /var/www/
+[command] [options] [arguments]
+
+
+*- [command] --help   // to get help on any command
+------------------------------------------------
+
+**ssh**
+
+*-used to login into remote sever
+ > ssh userName@[domainName/ip address]
+   -every time you login you need to give password for the server which you are loging into.
+
+*-In order to do password less login onto remote machine need to create public ssh-key and share it with remote server.
+ > ssh-keygen 
+	-this will create the public and private keys in your home directory
+	 /home/vishal/.ssh/id_rsa(private key) 
+	 /home/vishal/.ssh/id_rsa.pub(public key)
+	-by default it creates the rsa encryption but we can customise it plz refer 
+	 "ssh-keygen --help" for more help.
+	-it will ask for location to create and the passphrase plz hit enter
+ 	NOTE : this keys are user specific i.e would be diffrent for root user or normal user on 			same machine.
+ 
+*-share your public key with server use
+ > ssh-copy-id userName@localhost
+   - this will copy your public key on remote server in .ssh/authorized_keys
+   - we can also copy this manually but its safe to do it with command
+
+*-
+ > ssh-add  
+	- add your private key to ssh-agent
+ > ssh-agent 
+	- keeps track of our private key which is used for authentication.
+
+-----------------------------------------------
+REVISIT it  
+**redhat support**
+- this is redhat support via command prompt
+ > redhat-support-tool
+ hit ? 
+
+- access knowledge base 
+ > redhat-support-tool kb [25002]  // this is the document id  
+
+------------------------------------------------    	
+
+**file system hierarchy**
+
+*- /bin -> /usr/bin  
+	- binaries, all executables are stored here
+	- /bin is the alise/symbolic link of /usr/bin
+
+*- /boot 
+	- grub i.e bootloder 
+	- and kernal
+
+*- /dev 
+	- its sudo file system
+	- its same as the file system we have on disk but this is on memory.
+	- it is recreated on evey system boot
+
+*- /etc 
+	- configuration files are stored
+	- all static configuration are stored here they dont change unless admin does
+
+*- /var
+	- variable configuration
+	- all dynamic config 
+	
+*- /home 
+	- home directory for users
+	- has all user contents 
+	- different user gets different user space (download,desktop,documents...etc)
+
+*- /lib   -> /usr/lib
+  /lib64 -> /usr/lib64
+	- has libraries that are being used by executables for execution
+	- lib & lib64 are arch 
+
+*- /media 
+	- where devices are mounted cd-rom,usb & etc
+	- in older systems but still used for compatability in older programs
+	- in rhel 7 media is in /run/media
+*- /run 
+	- run time data , while app is running and cleans when stops runing 
+	- /run/media used in rhel 7 onwards 
+
+*- /mnt 
+	- mount directory used by users to temporarily mount devices and use it
+
+*- /opt 
+	- historical directory
+	- has application which are installed by 3rd party vendors or optional softwares     
+ 
+*- /proc 
+	- has kernal configuration and list of processes running
+	- its is not on physical disk its in memory 
+
+*- /root 
+	- home directory for root user (documents,desktop,downloads & etc) 
+
+*- /sbin -> /usr/sbin 
+	- super user binary used by root user to do admin task   
+
+*- /srv
+	- services 
+	- when this system acts like server then the data for that service are stored 		     here
+
+*- /sys
+	- system config 
+	live info kernal config , file system 
+
+*- /tmp
+	- temporary
+	- if data not used for 10days then deleted
+
+*- /var/tmp
+	- data you dont want to delete 
+	- data deleted after 30 days
+
+*- /usr 
+	- installed software,shared libraries,include files,static read-only program data.
+	- /usr/bin        //user commands
+	  /usr/sbin       // system admin commands
+	  /usr/local	  // locally customized software
+
+----------------------------------------------------------------
+
+**manage files using terminal**
+
+ *-mkdir <directory>
+	- create a directory
+
+ *-mkdir -p <directories_path>
+	- to create missing dir in path
+
+ *-cp file1 file2 file3 ~/destination_dir
+	- copy command 
+	- cannot copy directory 
+
+ *-mv file1 file2
+	-move cmd used to rename or cut and past to another location
+
+ *-ln name1 name2
+	- link command to create a link to same file 
+	- they are the same file with dirrent file name  	 
+
+ *-rm file1
+	-remove files
+
+ *-rm -rf /dir
+	-remove directory
+
+ *-rmdir /dir
+	-remove directory which are empty 
+
+----------------------------------------------------------------
+
+**hard links & soft links**
+
+ *-hard link
+  >ln file1 file2
+	-delete link or sourec wont matter
+	-you are just creating alis name for existing file
+	-you cannot create hard links for directories
+	-all hardlinks have to reside on the same file system
+ 
+ *-soft link
+ > ln -s file1 file2
+	-same as shortcuts
+	-deleting source will make link inaccessable 
+	-you can create softlinks on directories aswell    
+
+</eod>
+--------------------------------------------------------------------------------------------------------------------------------
+
+<start>
+----------------------------------------------------------------
+#7-7-2017 Friday
+----------------------------------------------------------------
+
+**users & groups**
+
+*-
+>id 
+	-gives entire user and group id of currently logged in user
+	-uid,gid,groups,context
+
+*-
+>id userName
+	-gives user & group info of that perticular user
+
+*-
+>ls -l
+	-permissions,refference/link count,file owner,group
+
+*-
+>ps -uax
+	-ps process information by default only shows process in current shell
+		-u users associated with process
+		-a all process associated with terminal
+		-x all process demon & background
+
+*-map user to uid numbers
+	-/etc/passwd file has this mapping 	     		 
+	-file content  [ user_name : password : uid : gid : GECOS : home dir : shell ]
+		-password: passwords were stored here historically but now its stored under /etc/shadow 
+		-uid : user id number associated with that user
+		-gid : primary group id number associated with that user
+		-GECOS : this filed includes users real name
+		-home dir : denotes home directory of that user
+		-shell : the default shell user runs (bash)
+		
+*-map group to id
+	 
+	-/etc/group file has this mapping
+	-file content [group_name : password : gid : list of user_names in this group ]
+	
+*-Primary Group : 
+	every user has one primary group and by default it is him himself.it is enlisted in /etc/passwd	
+	
+*-Supplementary group :
+	users may or maynot have supplementary group,but they if they are it will be listed in /etc/group in last column entry.
+	
+		
+</eod>      
