@@ -12,10 +12,30 @@ this module create a virtual environment for project the project which facilitat
   > pip install virtualenv
   
   *- Create a virtual environment project
-	> virtualenv -p /usr/bin/<python with version> <project name> 
+	> virtualenv -p <python with version> <project name> 
 
   *- To get into virtual environment
 	> source <project name>/bin/activate
 
   *- To exit project
 	> deactivate
+
+---------------------------------------------------------------------------------------------------------------------------
+
+#VIRTUALENVWRAPPER(workon):
+REF : https://www.youtube.com/watch?v=kC20Pfi-k1Q
+when you want your environment isolated form code or you want to keep common vitrual-env then we make use of virtualenvwrapper.
+
+- sudo pip install virtualenvwrapper		#install virtualenvwrapper
+
+- export WORKON_HOME = ~/Envs			#where you want all your virtual-envs
+
+- mkdir -p $WORKON_HOME				#create that directory which you specified in export 
+
+- source /usr/local/bin/virtualenvwrapper.sh 	#run this scritp
+
+- mkvirtualenv <your virtual-env name>		#create new virtual-env
+
+- workon  					#list all the virtual-envs avilable
+
+- workon <env name> 				#to switch to that env	
